@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../assets/Logo.svg";
-import { Container,Content } from "./styles";
+import { Container, Content } from "./styles";
+import Modal from "react-modal";
 
-export default function Header() {
+interface HeaderProps {
+  handleOpenNewTransactionModel: () => void;
+}
+
+export default function Header({ handleOpenNewTransactionModel }: HeaderProps) {
   return (
     <Container>
       <Content>
         <img src={Logo} alt="dtMoney" />
-        <button>Nova transação</button>
+        <button onClick={handleOpenNewTransactionModel}>Nova transação</button>
       </Content>
     </Container>
   );
